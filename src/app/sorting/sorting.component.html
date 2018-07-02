@@ -1,1 +1,8 @@
-
+<ul class="sorting__items">
+  <li class="sorting__item">
+    <button (click)="changeCategory()">all</button>
+  </li>
+  <li class="sorting__item" *ngFor = "let category of Categories">
+    <button (click)="changeCategory(category)">{{category}}</button>
+  </li>
+</ul>

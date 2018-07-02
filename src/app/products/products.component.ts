@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { ProductsService} from './products.service';
 import { Products} from './products';
+import { AppSorting} from '../sorting/sorting.component';
 
 @Component ({
   selector: 'app-products',
@@ -14,19 +15,11 @@ export class AppProducts implements OnInit{
   constructor (private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.products=this.productsService.getProducts(this.CurrentCategory);
+    this.products=this.productsService.getProducts(null);
   }
 
-  public CurrentCategory = null;
-
-  Categories = [
-    "mobile phone",
-    "car",
-    "house"
-  ]
-
-  changeCategory(newCategory?: string) {
-    this.CurrentCategory = newCategory;
-    this.products=this.productsService.getProducts(this.CurrentCategory);
+  @Input()
+  set CurrentCategory (newCategory?: string) {
+    this.products=this.productsService.getProducts(newCategory);
   }
 }
