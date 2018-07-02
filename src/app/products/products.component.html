@@ -1,0 +1,23 @@
+<ul class="sorting__items">
+  <li class="sorting__item">
+    <button (click)="changeCategory()">all</button>
+  </li>
+  <li class="sorting__item" *ngFor = "let category of Categories">
+    <button (click)="changeCategory(category)">{{category}}</button>
+  </li>
+</ul>
+
+<ul class="products__items">
+  <li class="products__item products__item--top">
+    <span class="products__info">№</span>
+    <span class="products__info">name</span>
+    <span class="products__info">price</span>
+    <span class="products__info">category</span>
+  </li>
+  <li class="products__item" *ngFor="let product of products; let i = index">
+    <span class="products__info">{{i+1}}</span>
+    <span class="products__info">{{product.name}}</span>
+    <span class="products__info">{{product.price | currency:"USD":true:"2.2-2" }}</span>
+    <span class="products__info">{{product.category}}</span>
+  </li>
+</ul>
