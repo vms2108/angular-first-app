@@ -6,18 +6,10 @@
     <span class="products__info">price</span>
     <span class="products__info">category</span>
   </li>
-  <li class="products__item" *ngFor="let product of products; let i = index">
+  <li class="products__item" *ngFor="let product of ProductsFrom; let i = index">
     <span class="products__info">{{i+1}}</span>
     <span class="products__info">{{product.name}}</span>
     <span class="products__info">{{product.price | currency:"USD":true:"2.2-2" }}</span>
     <span class="products__info">{{product.category}}</span>
   </li>
-  <li class="products__item products__item--top">
-    {{sort}}
-  </li>
-  <li class="form__item"><input class="form__input" [(ngModel)]="id" [id]='value' type="number"></li>
-  <li class="form__item"><input class="form__input" [(ngModel)]="name" placeholder="name"></li>
-  <li class="form__item"><input class="form__input" [(ngModel)]="category" placeholder="category"></li>
-  <li class="form__item"><input class="form__input" [(ngModel)]="price" placeholder="price" type="number"></li>
-  <li class="form__item"><button class="form__button" (click)="addProduct(id, name, category, price)">Add</button></li>
 </ul>

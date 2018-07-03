@@ -2,8 +2,7 @@
   <li class="sorting__item">
     <button (click)="changeCategory()">all</button>
   </li>
-  <li class="sorting__item" *ngFor = "let category of Categories">
-    <button (click)="changeCategory(category)">{{category}}</button>
+  <li class="sorting__item" *ngFor = "let item of CategoriesFrom">
+    <button (click)="changeCategory(item.category)">{{item.category}}</button>
   </li>
 </ul>
-<app-products [newsorting]="CurrentCategory"></app-products>

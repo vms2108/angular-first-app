@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppProducts } from './products/products.component';
+import { AppProductsAdd } from './products/products-add/products-add.component';
 import { AppSorting } from './sorting/sorting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppProducts,
-    AppSorting
+    AppSorting,
+    AppProductsAdd
   ],
   imports: [
     BrowserModule,

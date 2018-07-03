@@ -1,31 +1,19 @@
-import { Component, OnInit} from '@angular/core';
-import { ProductsService} from '../products/products.service';
-import { Products} from '../products/products';
-import { AppProducts} from '../products/products.component';
+import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 
 @Component ({
   selector: 'app-sorting',
   templateUrl: './sorting.component.html',
-  styleUrls: ['./sorting.component.scss'],
-  providers: [ProductsService]
+  styleUrls: ['./sorting.component.scss']
 })
 
-export class AppSorting implements OnInit {
-  ngOnInit() {}
+export class AppSorting {
 
-  products: Products[]=[];
-  constructor (private productsService: ProductsService) {}
-
-  public CurrentCategory = null;
-
-  Categories = [
-    "mobile phone",
-    "car",
-    "house"
-  ]
+  @Input() CategoriesFrom: any = null;
+  @Output() onChanged = new EventEmitter <string> ();
 
   changeCategory(newCategory?: string) {
-    this.CurrentCategory = newCategory;
+
+    this.onChanged.emit(newCategory);
   }
 
 }

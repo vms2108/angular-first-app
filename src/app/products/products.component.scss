@@ -45,26 +45,3 @@
 .products__info:last-child {
   border-right: 1px solid black;
 }
-
-.form__item {
-  text-align: left;
-  margin: 10px 0;
-}
-
-.form__input {
-  font-size: 24px;
-  padding: 5px 10px;
-  border: 1px solid black;
-}
-
-.form__button {
-  font-size: 24px;
-  padding: 5px 20px;
-  border: 1px solid black;
-  background: rgba(230,230,230,0.7);
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-    background: #000;
-  }
-}

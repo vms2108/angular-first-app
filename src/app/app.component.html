@@ -1,8 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-  Welcome to {{ title }}!
+  Welcome to {{ MainCategory }}!
   </h1>
   <div class="container">
-    <app-sorting></app-sorting>
+    <app-sorting (onChanged)="onChanged($event)" [CategoriesFrom]="categories"></app-sorting>
+    <app-products [ProductsFrom]="products"></app-products>
+    <app-products-add (NewProduct)="addProduct($event)" [id]="Id"></app-products-add>
   </div>
