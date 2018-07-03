@@ -11,19 +11,29 @@ import { AppSorting} from '../sorting/sorting.component';
 })
 
 export class AppProducts implements OnInit{
-  @Input() newsorting: string = null;
+  @Input() Newsorting: string = null;
   products: Products[]=[];
+  sort: string = null;
+  id: number = 1;
+
   constructor (private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.products=this.productsService.getProducts(null);
+    this.products=this.productsService.getProducts();
+    this.id = this.productsService.getNextID();
   }
-  if (newsorting) {
-    this.products=this.productsService.getProducts(newsorting);
-  }
+
   @Input()
-  set newsorting(newsorting) {
-    this.products=this.productsService.getProducts(newsorting);
+  set newsorting(Newsorting) {
+    this.products=this.productsService.getProducts(Newsorting);
+    this.sort = Newsorting;
+
+  }
+
+  addProduct(id: number, name: string, category: string, price: number) {
+    this.productsService.addProducts(id, name, category, price);
+    this.products=this.productsService.getProducts();
+    this.id = this.productsService.getNextID();
   }
 
 }

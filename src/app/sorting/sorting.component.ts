@@ -26,8 +26,6 @@ export class AppSorting implements OnInit {
 
   changeCategory(newCategory?: string) {
     this.CurrentCategory = newCategory;
-    this.products=this.productsService.getProducts(this.CurrentCategory);
-    console.log(this.productsService.getProducts(this.CurrentCategory));
   }
 
 }

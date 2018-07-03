@@ -25,5 +25,9 @@ export class ProductsService {
   }
   addProducts(id: number, name: string, category: string, price: number) {
     this.data.push(new Products(id, name, category, price));
+    return this.data;
+  }
+  getNextID() {
+    return this.data.length+1;
   }
 }
