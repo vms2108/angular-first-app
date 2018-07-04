@@ -6,9 +6,9 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['products-add.component.scss']
 })
 
-export class AppProductsAdd {
+export class AppProductsAddComponent {
   @Input() CategoriesFrom: any = null;
-  @Input() id: number = 1;
+  @Input() id = 1;
   @Output() NewProduct = new EventEmitter <any>();
   addProduct(id: number, name: string, category: string, price: number) {
     this.NewProduct.emit({id, name, category, price});

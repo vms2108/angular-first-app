@@ -6,7 +6,7 @@ import { Component, OnInit, Input} from '@angular/core';
   styleUrls: ['products.component.scss']
 })
 
-export class AppProducts {
+export class AppProductsComponent {
 
   @Input() ProductsFrom: any = null;
 

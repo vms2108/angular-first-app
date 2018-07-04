@@ -4,9 +4,9 @@ import { Injectable} from '@angular/core';
 @Injectable()
 export class CategoriesService {
   private data: Categories[] = [
-    {category: "mobile phone"},
-    {category: "car"},
-    {category: "house"}
+    {category: 'mobile phone'},
+    {category: 'car'},
+    {category: 'house'}
   ];
 
   getCategories() {

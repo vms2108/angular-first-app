@@ -6,9 +6,10 @@ import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
   styleUrls: ['./sorting.component.scss']
 })
 
-export class AppSorting {
+export class AppSortingComponent {
 
   @Input() CategoriesFrom: any = null;
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onChanged = new EventEmitter <string> ();
 
   changeCategory(newCategory?: string) {

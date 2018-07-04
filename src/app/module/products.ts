@@ -4,5 +4,5 @@ export class Products {
     public name: string,
     public category: string,
     public price: number
-  ){}
+  ) {}
 }
