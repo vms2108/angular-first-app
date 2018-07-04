@@ -1,9 +1,13 @@
 <div style="text-align:center">
   <h1>
-  Welcome to {{ MainCategory }}!
+  {{ title }}
   </h1>
   <div class="container">
-    <app-sorting (onChanged)="onChanged($event)" [CategoriesFrom]="categories"></app-sorting>
-    <app-products [ProductsFrom]="products"></app-products>
-    <app-products-add (NewProduct)="addProduct($event)" [id]="Id"></app-products-add>
+    <div class="container__left">
+      <app-sorting (onChanged)="onChanged($event)" [CategoriesFrom]="categories"></app-sorting>
+      <app-products-add (NewProduct)="addProduct($event)" [id]="Id" [CategoriesFrom]="categories"></app-products-add>
+    </div>
+    <div class="container__right">
+      <app-products [ProductsFrom]="products"></app-products>
+    </div>
   </div>

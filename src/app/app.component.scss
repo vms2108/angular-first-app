@@ -1,0 +1,25 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1020px) {
+    flex-direction: column;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    @media (max-width: 1020px) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__right {
+    width: 70%;
+    @media (max-width: 1020px) {
+      width: 100%;
+    }
+  }
+}

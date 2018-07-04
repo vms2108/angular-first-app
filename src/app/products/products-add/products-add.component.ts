@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 
 export class AppProductsAdd {
-
+  @Input() CategoriesFrom: any = null;
   @Input() id: number = 1;
   @Output() NewProduct = new EventEmitter <any>();
   addProduct(id: number, name: string, category: string, price: number) {

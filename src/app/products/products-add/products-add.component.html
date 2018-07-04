@@ -1,7 +1,11 @@
 <ul class="form__items">
-  <li class="form__item"><input class="form__input" [(ngModel)]="id" [id]='value' type="number"></li>
+  <li class="form__item"><div class="form__input">{{id}}</div></li>
   <li class="form__item"><input class="form__input" [(ngModel)]="name" placeholder="name"></li>
-  <li class="form__item"><input class="form__input" [(ngModel)]="category" placeholder="category"></li>
+  <li class="form__item">
+    <select class="form__input" [(ngModel)]="category" placeholder="category">
+      <option *ngFor = "let item of CategoriesFrom">{{item.category}}</option>
+    </select>
+</li>
   <li class="form__item"><input class="form__input" [(ngModel)]="price" placeholder="price" type="number"></li>
   <li class="form__item"><button class="form__button" (click)="addProduct(id, name, category, price)">Add</button></li>
 </ul>
