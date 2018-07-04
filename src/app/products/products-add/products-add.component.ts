@@ -13,4 +13,5 @@ export class AppProductsAddComponent {
   addProduct(id: number, name: string, category: string, price: number) {
     this.NewProduct.emit({id, name, category, price});
   }
+
 }
