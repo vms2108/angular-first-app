@@ -2,13 +2,13 @@
   <ul class="form__items">
     <li class="form__item"><div class="form__input">{{id}}</div></li>
     <li class="form__item">
-      <input class="form__input" name="name" [(ngModel)]="name" placeholder="name" formControlName="userName">
+      <input class="form__input" name="name" [(ngModel)]="name" placeholder="name" formControlName="userName" autocomplete="off">
     </li>
     <div *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
         Не корректно заполнено
     </div>
     <li class="form__item">
-      <select class="form__input" [(ngModel)]="category" placeholder="category" formControlName="userCategory">
+      <select class="form__input" [(ngModel)]="category" placeholder="category" formControlName="userCategory" autocomplete="off">
         <option *ngFor = "let item of CategoriesFrom">{{item.category}}</option>
       </select>
     </li>
