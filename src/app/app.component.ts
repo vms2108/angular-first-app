@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.categories = this.categoriesService.getCategories();
     this.Id = this.productsService.getNextID();
+    this.categoriesService.getData().subscribe((data: Categories) => this.categories = data['categories']);
   }
   onChanged(category?: string) {
     this.CurrentCategory = category;
