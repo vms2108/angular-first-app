@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
 
   // tslint:disable-next-line:member-ordering
   categories: Categories[] = [];
+  productsFromFile: Products[] = [];
   constructor (
     private productsService: ProductsService,
     private categoriesService: CategoriesService
@@ -28,10 +29,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.Id = this.productsService.getNextID();
     this.categoriesService.getData().subscribe((data: Categories) => this.categories = data['categories']);
+    this.productsService.getData().subscribe((data: Products) => this.productsFromFile = data['productsList']);
   }
   onChanged(category?: string) {
     this.CurrentCategory = category;
     this.changePage(1);
+    this.productsService.getData().subscribe((data: Products) => this.productsFromFile = data['productsList']);
   }
 
   addProduct(Object) {

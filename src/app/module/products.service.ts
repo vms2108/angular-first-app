@@ -1,9 +1,14 @@
 import { Products } from './products';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import {Observable} from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 
 @Injectable()
 export class ProductsService {
+  constructor (private http: HttpClient) {}
   private data: Products[] = [
     { id: 1, name: 'iphone 7', category: 'mobile phone', price: 250 },
     { id: 2, name: 'Motorolla', category: 'mobile phone', price: 120 },
@@ -29,5 +34,9 @@ export class ProductsService {
   }
   getNextID() {
     return this.data.length + 1;
+  }
+
+  getData() {
+    return this.http.get('./assets/products.json');
   }
 }
