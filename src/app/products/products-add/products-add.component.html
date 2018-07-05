@@ -8,8 +8,8 @@
         Не корректно заполнено
     </div>
     <li class="form__item">
-      <select class="form__input" [(ngModel)]="category" placeholder="category" formControlName="userCategory" autocomplete="off">
-        <option *ngFor = "let item of CategoriesFrom">{{item.category}}</option>
+      <select class="form__input" [(ngModel)]="category" formControlName="userCategory">
+          <option *ngFor = "let item of CategoriesFrom" [value]="item.category" >{{item.category}}</option>
       </select>
     </li>
     <div *ngIf="myForm.controls['userCategory'].invalid && myForm.controls['userCategory'].touched">

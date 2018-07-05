@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public CurrentCategory = null;
   public Id = 1;
   public MainCategory: string = null;
-  public productsPerPage = 8;
+  public productsPerPage = 5;
   public selectedPage = 1;
 
   // tslint:disable-next-line:member-ordering

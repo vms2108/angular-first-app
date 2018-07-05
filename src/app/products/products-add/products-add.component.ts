@@ -11,9 +11,6 @@ export class AppProductsAddComponent implements OnInit {
   @Input() CategoriesFrom: any = null;
   @Input() id = 1;
   @Output() NewProduct = new EventEmitter <any>();
-  category: string;
-  name: string;
-  price: number;
   addProduct(id: number, name: string, category: string, price: number) {
     this.NewProduct.emit({id, name, category, price});
     this.myForm = new FormGroup({
