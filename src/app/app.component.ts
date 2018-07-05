@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   }
   onChanged(category?: string) {
     this.CurrentCategory = category;
+    this.changePage(1);
   }
 
   addProduct(Object) {
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit {
 
   get products(): Products[] {
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
+    this.changePage(this.selectedPage);
     return this.productsService.getProducts(this.CurrentCategory)
       .slice(pageIndex, pageIndex + this.productsPerPage);
   }
