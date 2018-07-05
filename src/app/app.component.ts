@@ -14,19 +14,9 @@ export class AppComponent implements OnInit {
   public CurrentCategory = null;
   public Id = 1;
   public MainCategory: string = null;
-  public title: string = null;
+  public productsPerPage = 8;
+  public selectedPage = 1;
 
-  getTitle(category?: string) {
-    if (category) {
-      return category;
-    } else {
-      return 'All categories';
-    }
-  }
-
-
-  // tslint:disable-next-line:member-ordering
-  products: Products[] = [];
   // tslint:disable-next-line:member-ordering
   categories: Categories[] = [];
   constructor (
@@ -37,19 +27,34 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
-    this.products = this.productsService.getProducts();
     this.Id = this.productsService.getNextID();
-    this.title = this.getTitle();
   }
   onChanged(category?: string) {
-    this.title = this.getTitle(category);
     this.CurrentCategory = category;
-    this.products = this.productsService.getProducts(this.CurrentCategory);
   }
 
   addProduct(Object) {
     this.productsService.addProducts(Object.id, Object.name, Object.category, Object.price);
-    this.products = this.productsService.getProducts(this.CurrentCategory);
     this.Id = this.productsService.getNextID();
+  }
+
+  get products(): Products[] {
+    const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
+    return this.productsService.getProducts(this.CurrentCategory)
+      .slice(pageIndex, pageIndex + this.productsPerPage);
+  }
+
+  changePage(newPage: number) {
+    this.selectedPage = newPage;
+  }
+
+  changePageSize(newSize: number) {
+    this.productsPerPage = Number(newSize);
+    this.changePage(1);
+  }
+
+  get pageNumbers(): number[] {
+    return Array(Math.ceil(this.productsService
+      .getProducts(this.CurrentCategory).length / this.productsPerPage)).fill(0).map((x, i) => i + 1);
   }
 }
